@@ -19,6 +19,17 @@ services:
         depends_on: #php service will run after the database service
             - database
 
+    #nginx
+    nginx:
+        image: nginx:latest
+        ports:
+            - 8080:80
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+            - ./:/var/www
+        depends_on:
+            - php
+
     #Database service
     database:
         image: mysql:8.2

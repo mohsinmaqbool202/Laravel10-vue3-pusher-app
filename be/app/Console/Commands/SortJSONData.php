@@ -49,9 +49,6 @@ class SortJSONData extends Command
             case 'Selection Sort':
                 $products = $this->selectionSort($products);
                 break;
-            case 'Quick Sort':
-                $products = $this->quickSort($products);
-                break;
             default:
                 $this->error('Invalid option selected.');
                 break;
@@ -162,24 +159,6 @@ class SortJSONData extends Command
                 $products[$low] = $tmp;
             }
         }
-
-        $endTime = microtime(true);
-        $this->logProcessingTime($startTime, $endTime);
-        return $products;
-    }
-
-    /**
-     * Selection Sort divides the input array into two parts: the sorted and the unsorted subarrays.
-     * The algorithm iterates through the unsorted subarray, finds the minimum element, and swaps it with the first element of the unsorted subarray.
-     * This process is repeated until the entire array is sorted.
-     * @param $products
-     * @return array
-     */
-    public function quickSort($products) : array
-    {
-        $startTime = microtime(true);
-
-        $n = count($products);
 
         $endTime = microtime(true);
         $this->logProcessingTime($startTime, $endTime);

@@ -3,6 +3,7 @@ services:
 
     #php service
     php:
+        container_name: php
         build: #in build, we set the path of dockerfile
             context: .
             target: php
@@ -21,6 +22,7 @@ services:
 
     #nginx
     nginx:
+        container_name: nginx
         image: nginx:latest
         ports:
             - 8080:80
@@ -32,6 +34,7 @@ services:
 
     #Database service
     database:
+        container_name: database
         image: mysql:8.2
         ports:
             - 3306:3306
